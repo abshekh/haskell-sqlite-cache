@@ -80,91 +80,91 @@ chinookDb =
   defaultDbSettings
     `withDbModification` ( dbModification
                              { _album =
-                                 setEntityName "Album"
-                                   <> modifyTableFields (Album.Album "AlbumId" "Title" (Artist.ArtistId "ArtistId")),
+                                 setEntityName "album"
+                                   <> modifyTableFields (Album.Album "albumid" "title" (Artist.ArtistId "artistid")),
                                _artist =
-                                 setEntityName "Artist"
-                                   <> modifyTableFields (Artist.Artist "ArtistId" "Name"),
+                                 setEntityName "artist"
+                                   <> modifyTableFields (Artist.Artist "artistid" "name"),
                                _customer =
-                                 setEntityName "Customer"
+                                 setEntityName "customer"
                                    <> modifyTableFields
                                      ( Customer.Customer
-                                         "CustomerId"
-                                         "FirstName"
-                                         "LastName"
-                                         "Company"
+                                         "customerid"
+                                         "firstname"
+                                         "lastname"
+                                         "company"
                                          (addressFields "")
-                                         "Phone"
-                                         "Fax"
-                                         "Email"
-                                         (Employee.EmployeeId "SupportRepId")
+                                         "phone"
+                                         "fax"
+                                         "email"
+                                         (Employee.EmployeeId "supportrepid")
                                      ),
                                _employee =
-                                 setEntityName "Employee"
+                                 setEntityName "employee"
                                    <> modifyTableFields
                                      ( Employee.Employee
-                                         "EmployeeId"
-                                         "LastName"
-                                         "FirstName"
-                                         "Title"
-                                         (Employee.EmployeeId "ReportsTo")
-                                         "BirthDate"
-                                         "HireDate"
+                                         "employeeid"
+                                         "lastname"
+                                         "firstname"
+                                         "title"
+                                         (Employee.EmployeeId "reportsto")
+                                         "birthdate"
+                                         "hiredate"
                                          (addressFields "")
-                                         "Phone"
-                                         "Fax"
-                                         "Email"
+                                         "phone"
+                                         "fax"
+                                         "email"
                                      ),
                                _genre =
-                                 setEntityName "Genre"
+                                 setEntityName "genre"
                                    <> modifyTableFields
-                                     (Genre.Genre "GenreId" "Name"),
+                                     (Genre.Genre "genreid" "name"),
                                _invoice =
-                                 setEntityName "Invoice"
+                                 setEntityName "invoice"
                                    <> modifyTableFields
                                      ( Invoice.Invoice
-                                         "InvoiceId"
-                                         (Customer.CustomerId "CustomerId")
-                                         "InvoiceDate"
-                                         (addressFields "Billing")
-                                         "Total"
+                                         "invoiceid"
+                                         (Customer.CustomerId "customerid")
+                                         "invoicedate"
+                                         (addressFields "billing")
+                                         "total"
                                      ),
                                _invoiceLine =
-                                 setEntityName "InvoiceLine"
+                                 setEntityName "invoiceline"
                                    <> modifyTableFields
                                      ( InvoiceLine.InvoiceLine
-                                         "InvoiceLineId"
-                                         (Invoice.InvoiceId "InvoiceId")
-                                         (Track.TrackId "TrackId")
-                                         "UnitPrice"
-                                         "Quantity"
+                                         "invoicelineid"
+                                         (Invoice.InvoiceId "invoiceid")
+                                         (Track.TrackId "trackid")
+                                         "unitprice"
+                                         "quantity"
                                      ),
                                _mediaType =
-                                 setEntityName "MediaType"
-                                   <> modifyTableFields (MediaType.MediaType "MediaTypeId" "Name"),
+                                 setEntityName "mediatype"
+                                   <> modifyTableFields (MediaType.MediaType "mediatypeid" "name"),
                                _playlist =
-                                 setEntityName "Playlist"
-                                   <> modifyTableFields (Playlist.Playlist "PlaylistId" "Name"),
+                                 setEntityName "playlist"
+                                   <> modifyTableFields (Playlist.Playlist "playlistid" "name"),
                                _playlistTrack =
-                                 setEntityName "PlaylistTrack"
+                                 setEntityName "playlisttrack"
                                    <> modifyTableFields
                                      ( PlaylistTrack.PlaylistTrack
-                                         (Playlist.PlaylistId "PlaylistId")
-                                         (Track.TrackId "TrackId")
+                                         (Playlist.PlaylistId "playlistid")
+                                         (Track.TrackId "trackid")
                                      ),
                                _track =
-                                 setEntityName "Track"
+                                 setEntityName "track"
                                    <> modifyTableFields
                                      ( Track.Track
-                                         "TrackId"
-                                         "Name"
-                                         (Album.AlbumId "AlbumId")
-                                         (MediaType.MediaTypeId "MediaTypeId")
-                                         (Genre.GenreId "GenreId")
-                                         "Composer"
-                                         "Milliseconds"
-                                         "Bytes"
-                                         "UnitPrice"
+                                         "trackid"
+                                         "name"
+                                         (Album.AlbumId "albumid")
+                                         (MediaType.MediaTypeId "mediatypeid")
+                                         (Genre.GenreId "genreid")
+                                         "composer"
+                                         "milliseconds"
+                                         "bytes"
+                                         "unitprice"
                                      )
                              }
                          )

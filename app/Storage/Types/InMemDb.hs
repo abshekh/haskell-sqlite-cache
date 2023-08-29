@@ -67,28 +67,28 @@ data ChinookInMemDb f = ChinookInMemDb
 initialSetup :: Migration Sqlite (CheckedDatabaseSettings Sqlite ChinookInMemDb)
 initialSetup =
   ChinookInMemDb
-    <$> ( createTable "Artist" $
+    <$> ( createTable "artist" $
             Artist.Artist
-              { artistId = field "ArtistId" int notNull unique,
-                artistName = field "Name" (nationalVarchar (Just 120)) notNull unique
+              { artistId = field "artistid" int notNull unique,
+                artistName = field "name" (nationalVarchar (Just 120)) notNull unique
               }
         )
-    <*> ( createTable "Genre" $
+    <*> ( createTable "genre" $
             Genre.Genre
-              { genreId = field "GenreId" int notNull unique,
-                genreName = field "Name" (nationalVarchar (Just 120)) notNull
+              { genreId = field "genreid" int notNull unique,
+                genreName = field "name" (nationalVarchar (Just 120)) notNull
               }
         )
-    <*> ( createTable "MediaType" $
+    <*> ( createTable "mediatype" $
             MediaType.MediaType
-              { mediaTypeId = field "MediaTypeId" int notNull unique,
-                mediaTypeName = field "Name" (maybeType (nationalVarchar (Just 120)))
+              { mediaTypeId = field "mediatypeid" int notNull unique,
+                mediaTypeName = field "name" (maybeType (nationalVarchar (Just 120)))
               }
         )
-    <*> ( createTable "Playlist" $
+    <*> ( createTable "playlist" $
             Playlist.Playlist
-              { playlistId = field "PlaylistId" int notNull unique,
-                playlistName = field "Name" (maybeType (nationalVarchar (Just 120)))
+              { playlistId = field "playlistid" int notNull unique,
+                playlistName = field "name" (maybeType (nationalVarchar (Just 120)))
               }
         )
 

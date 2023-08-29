@@ -51,6 +51,7 @@ executable in-memory-sqlite
                       ,    FlexibleContexts
                       ,    OverloadedStrings
                       ,    RecordWildCards
+                      -- ,    AllowAmbiguousTypes
     build-depends:         base
                  ,         sqlite-simple
                  ,         beam-sqlite
@@ -59,6 +60,9 @@ executable in-memory-sqlite
                  ,         scientific
                  ,         time
                  ,         text
+                 ,         postgresql-simple
+                 ,         beam-postgres
+                 ,         template-haskell
     ghc-options: -Wall
     hs-source-dirs:        app
     default-language: Haskell2010
